@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.pointer {
+	cursor: pointer;
+}
+
+.marBottom10 {
+	margin-bottom: 10px;
+}
+
+.marRight3 {
+	margin-right: 3px;
+}
+
+
+.floatRight {
+	float: right;
+}
+

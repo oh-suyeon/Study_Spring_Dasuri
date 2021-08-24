@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+
+html, body, div {
+	margin: 0px;
+	padding: 0px;
+}
+
+* {
+	font-size: 17px;
+}
+
+#header, .tilesContainer, #footer {
+	width: 100%;
+	margin: 0px;
+}
+
+#header{
+	height: 10vh;
+	float: left;
+	background-color: LightSkyBlue;
+}
+
+.tilesContainer{
+	height: 80vh;
+	display:flex;
+}
+
+#body {
+	height: 80vh;
+	width: 80%;
+/* 	margin-left: 10px; */
+	float: left;
+	background-color: aliceblue;
+}
+
+#aside {
+	height: 80vh;
+	width: 20%;
+	float: left;
+	background-color: LightSteelBlue;
+}
+
+#footer {
+	height: 10vh;
+	float: left;
+	background-color: LightSkyBlue;
+}

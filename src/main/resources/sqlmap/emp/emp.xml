@@ -1,0 +1,60 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="emp">
+	
+	<select id="selectList" parameterType="hashMap" resultType="empVo">
+		SELECT * 
+		FROM (SELECT ROW_NUMBER() OVER (ORDER BY emp_num DESC) rnum
+					, emp_num		
+					, emp_nm 		
+					, zipcode  		
+					, addr1     	
+					, addr2     	
+					, phone_num   	
+					, salary       	
+				FROM emp
+				WHERE 1 = 1
+				<if test="category!='' and 'all'.equals(category)">
+					AND emp_num || emp_nm || zipcode || addr1 || addr2 LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="category!='' and 'empNum'.equals(category)">
+					AND emp_num LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="category!='' and 'empNm'.equals(category)">
+					AND emp_nm LIKE '%' || #{keyword} || '%'
+				</if>
+				<if test="category!='' and 'addr'.equals(category)">
+					AND zipcode || addr1 || addr2 LIKE '%' || #{keyword} || '%'
+				</if>
+			) a		
+		WHERE a.rnum BETWEEN (#{currentPage} * 10 - 9) AND (#{currentPage} * 10)
+	</select>
+	
+	<select id="count" parameterType="hashMap" resultType="int">
+		SELECT COUNT(emp_num)
+		FROM emp
+		WHERE 1 = 1
+		<if test="keyword!=null and keyword!=''">
+			AND emp_num  LIKE '%' || #{keyword} || '%' 
+			 OR emp_nm 	 LIKE '%' || #{keyword} || '%' 
+		</if>
+	</select>
+	
+	<insert id="insert" parameterType="empVo">
+		<![CDATA[
+			INSERT INTO emp(emp_num, emp_nm, zipcode, addr1, addr2, phone_num, salary) 
+			VALUES 
+			(
+				(SELECT NVL(MAX(emp_num), TO_CHAR(SYSDATE, 'yyyyMM') || '000') + 1 
+				 FROM emp
+				 WHERE SUBSTR(emp_num, 0, 6) = TO_CHAR(SYSDATE, 'yyyyMM'))
+				,#{empNm}
+				,#{zipcode}
+				,#{addr1}
+				,#{addr2}
+				,#{phoneNum}
+				,#{salary}
+			)
+		]]>
+	</insert>
+
+</mapper>
