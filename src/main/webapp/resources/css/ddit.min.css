@@ -1,19 +1,21 @@
 @charset "UTF-8";
 
+/* list */
 .pointer {
 	cursor: pointer;
 }
-
-.marBottom10 {
+#searchBtn {
 	margin-bottom: 10px;
-}
-
-.marRight3 {
-	margin-right: 3px;
-}
-
-
-.floatRight {
 	float: right;
+	width: 60px;
 }
-
+#searchInput {
+	margin-right: 3px;
+	float: right;
+	width: 200px;
+}
+#searchSelect {
+	margin-right: 3px;
+	float: right;
+	width: 120px;
+}
