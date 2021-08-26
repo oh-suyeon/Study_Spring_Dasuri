@@ -27,7 +27,7 @@
 						<div class="dataTables_wrapper dt-bootstrap4">
 							<div class="row">
 								<div class="col-sm-12 col-md-6">
-									<a class="btn btn-default marBottom10" id="makePdf">
+									<a class="btn btn-default" id="makePdf">
 					                  <i class="fas fa-file-pdf"></i> PDF 내려받기
 					                </a>
 								</div>

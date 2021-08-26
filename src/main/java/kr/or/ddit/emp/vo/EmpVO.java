@@ -1,5 +1,7 @@
 package kr.or.ddit.emp.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class EmpVO {
 	
 	private int salary;
@@ -9,7 +11,10 @@ public class EmpVO {
 	private int zipcode;
 	private String empNm;
 	private int empNum;
+	private MultipartFile file;
+	private String filePath;
 	private int rnum;
+	
 	
 	public int getSalary() {
 		return salary;
@@ -53,6 +58,18 @@ public class EmpVO {
 	public void setEmpNum(int empNum) {
 		this.empNum = empNum;
 	}
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	public String getFilePath() {
+		return filePath;
+	}
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
 	public int getRnum() {
 		return rnum;
 	}
@@ -62,7 +79,8 @@ public class EmpVO {
 	@Override
 	public String toString() {
 		return "EmpVO [salary=" + salary + ", phoneNum=" + phoneNum + ", addr2=" + addr2 + ", addr1=" + addr1
-				+ ", zipcode=" + zipcode + ", empNm=" + empNm + ", empNum=" + empNum + ", rnum=" + rnum + "]";
+				+ ", zipcode=" + zipcode + ", empNm=" + empNm + ", empNum=" + empNum + ", file=" + file + ", filePath="
+				+ filePath + ", rnum=" + rnum + "]";
 	}
 	
 }

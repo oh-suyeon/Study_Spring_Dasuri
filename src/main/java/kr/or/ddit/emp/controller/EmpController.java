@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.or.ddit.emp.service.EmpService;
 import kr.or.ddit.emp.vo.EmpVO;
+import kr.or.ddit.util.service.FileUploadService;
 import kr.or.ddit.util.vo.Pagination;
 
 @Controller
@@ -24,6 +25,9 @@ public class EmpController {
 
 	@Autowired
 	EmpService empService;
+	
+	@Autowired
+	FileUploadService fileUploadService;
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String selectList(@RequestParam Map<String, Object> map 
