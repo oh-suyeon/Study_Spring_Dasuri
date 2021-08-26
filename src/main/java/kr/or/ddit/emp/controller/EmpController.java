@@ -61,8 +61,8 @@ public class EmpController {
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insertPost(@ModelAttribute EmpVO empVo, Model model) throws Exception {
 		
-		// 파일 업로드 및 파일 경로 vo에 저장 
-		String uploadPath = "D:\\A_TeachingMaterial\\6.JspSpring\\workspace\\dasuriProj\\src\\main\\webapp\\resources\\upload\\";
+		// 파일 업로드 / 파일 경로 vo에 저장 
+		String uploadPath = "D:\\A_TeachingMaterial\\6.JspSpring\\workspace\\dasuriProj2\\src\\main\\webapp\\resources\\upload\\";
 		String filePath = this.fileUploadService.upload(uploadPath, empVo.getFile());
 		empVo.setFilePath(filePath);
 		
@@ -73,5 +73,13 @@ public class EmpController {
 		}
 		return "redirect:/emp/list";
 	}
+	
+	
+	@RequestMapping()
+	public String detail() throws Exception {
+		return "";
+	}
+	
+	
 	
 }
