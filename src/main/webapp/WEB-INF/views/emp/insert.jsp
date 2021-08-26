@@ -26,7 +26,7 @@
 	              </div>
 	              <!-- /.card-header -->
 	              <!-- form start -->
-	              <form action="/emp/insert" method="post">
+	              <form action="/emp/insert" method="post" enctype="multipart/form-data">
 	                <div class="card-body">
 	                  <div class="form-group">
 	                    <label for="empNm">이름</label>
@@ -63,10 +63,20 @@
 	                    <input type="number" class="form-control" name="salary" id="salary" placeholder="월급을 입력하세요">
 	                  </div>
 	                  
+	                  <div class="form-group">
+	                    <label for="attach">첨부파일</label>
+	                    <div class="input-group">
+	                      <div class="custom-file">
+	                        <input type="file" class="custom-file-input" id="file" name="file" >
+	                        <label class="custom-file-label" for="attach" id="attachLabel"></label>
+	                      </div>
+	                    </div>
+	                  </div>
+	                  
 	                </div>
 	                <!-- /.card-body -->
 	                <div class="card-footer text-right">
-	                  <button type="button" class="btn btn-primary" id="btnSubmit">등록</button>
+	                  <button type="submit" class="btn btn-primary" id="btnSubmit">등록</button>
 	                  <button type="button" class="btn btn-default" onclick="location.href='/emp/list'">취소</button>
 	                </div>
 	              </form>

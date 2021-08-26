@@ -28,7 +28,8 @@ public class FileUploadServiceImpl implements FileUploadService {
 	 * @return filePath : 파일이 저장될 String 경로 "resources/upload/..."
 	 * @throws Exception
 	 */
-	public String update(String uploadFolder, MultipartFile file) throws Exception {
+	@Override
+	public String upload(String uploadFolder, MultipartFile file) throws Exception {
 		
 		File uploadPath  = new File(uploadFolder, getFolder());
 		

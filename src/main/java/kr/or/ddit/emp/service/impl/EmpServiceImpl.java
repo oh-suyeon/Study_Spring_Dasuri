@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.or.ddit.emp.dao.EmpDao;
+import kr.or.ddit.emp.mapper.EmpMapper;
 import kr.or.ddit.emp.service.EmpService;
 import kr.or.ddit.emp.vo.EmpVO;
 
@@ -14,21 +14,25 @@ import kr.or.ddit.emp.vo.EmpVO;
 public class EmpServiceImpl implements EmpService{
 	
 	@Autowired
-	EmpDao empDao;
+	EmpMapper empMapper;
 
 	@Override
 	public List<Map<String, Object>> selectList(Map<String, Object> map) {
-		return this.empDao.selectList(map);
+		return this.empMapper.selectList(map);
 	}
 
 	@Override
 	public int count(Map<String, Object> map) {
-		return this.empDao.count(map);
+		return this.empMapper.count(map);
 	}
 	
 	@Override
 	public int insert(EmpVO empVo) {
-		return this.empDao.insert(empVo);
+		int row = this.empMapper.insert(empVo);
+		if(row > 0) {
+			return empVo.getEmpNum();
+		}
+		return 0;
 	}
 	
 }
