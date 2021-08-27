@@ -11,12 +11,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import kr.or.ddit.util.service.FileUploadService;
+import kr.or.ddit.util.service.FileService;
 
 @Service
-public class FileUploadServiceImpl implements FileUploadService {
+public class FileServiceImpl implements FileService {
 	
-	private static Logger logger = LoggerFactory.getLogger(FileUploadServiceImpl.class);
+	private static Logger logger = LoggerFactory.getLogger(FileServiceImpl.class);
 	
 	/**
 	 * 업로드할 폴더와 파일을 파라미터로 받는다. 

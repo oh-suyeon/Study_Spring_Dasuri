@@ -2,7 +2,7 @@ package kr.or.ddit.util.service;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public interface FileUploadService {
+public interface FileService {
 
 	/**
 	 * 업로드할 폴더와 파일을 파라미터로 받는다. 
